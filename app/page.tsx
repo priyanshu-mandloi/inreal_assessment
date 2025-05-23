@@ -69,26 +69,6 @@ export default function Home() {
         <h1 className="hidden md:block">(proof below)</h1>
         <h1 className="block md:hidden">(Here's the proof)</h1>
       </div>
-      {/* <div className="absolute top-[5%] left-0 z-20 w-full px-4 md:px-0 h-auto flex flex-col md:flex-row justify-between items-center text-white font-bold space-y-6 md:space-y-0 text-balance">
-        <div className="w-full md:w-1/2 h-full flex items-center text-center md:text-left pl-[10%]  ">
-          <h1 className="text-lg md:text-2xl leading-relaxed">
-            Join the World's Highest-Rated Online Masterclass (for Parents)
-            <br />
-            Learn simple, science-backed techniques to teach your child to read
-            — in just 15 minutes a day.
-          </h1>
-        </div>
-
-        <div className="w-full md:w-1/2 relative aspect-[3/4] md:pr-0">
-          <Image
-            src="/assets/user.png"
-            alt="user"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-      </div> */}
 
       <div className="absolute top-[5%] left-0 z-20 w-full px-4 md:px-0 h-auto flex flex-col md:flex-row justify-between items-center text-white font-bold space-y-3 md:space-y-0 text-balance mt-[105%] md:mt-0">
         <div className="w-full md:w-1/2 h-full flex items-center text-center md:text-left pl-[10%]">
