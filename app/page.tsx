@@ -1,103 +1,168 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="relative w-screen min-h-screen overflow-x-hidden">
+      <div className="absolute inset-0 z-0">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/assets/background.jpg"
+          alt="background"
+          fill
+          className="object-cover opacity-30"
           priority
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      </div>
+      <div className="absolute top-0 left-0 w-full h-[120%] z-10">
+        <Image
+          src="/assets/pinkbg.png"
+          alt="pink background"
+          fill
+          className="object-cover opacity-80"
+          priority
+        />
+      </div>
+      <div className="absolute top-0 left-0 w-full h-[70%] z-20">
+        <Image
+          src="/assets/cloud.svg"
+          alt="cloud"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div
+        className="absolute top-4 right-4 z-30 w-10 h-10 cursor-pointer"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <div className="relative w-full h-full">
+          <Image
+            src="/assets/Group_3.png"
+            alt="menu button"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </div>
+      {menuOpen && (
+        <ul className="absolute top-20 right-6 z-40 bg-white text-black shadow-lg rounded-lg p-4 space-y-2 w-40">
+          <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">
+            Home
+          </li>
+          <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">
+            About
+          </li>
+          <li className="hover:bg-gray-100 px-2 py-1 rounded cursor-pointer">
+            Login
+          </li>
+        </ul>
+      )}
+      <div className="absolute z-20 top-1/3 left-1/2 w-[90%] md:w-[700px] h-[200px] transform -translate-x-1/2 -translate-y-1/2">
+        <Image src="/assets/Group.png" alt="group" fill priority />
+      </div>
+      <div className="absolute z-20 top-1/2 left-1/2 transform -translate-x-1/2 text-white font-bold text-center text-sm md:text-base">
+        <h1 className="hidden md:block">(proof below)</h1>
+        <h1 className="block md:hidden">(Here's the proof)</h1>
+      </div>
+      {/* <div className="absolute top-[5%] left-0 z-20 w-full px-4 md:px-0 h-auto flex flex-col md:flex-row justify-between items-center text-white font-bold space-y-6 md:space-y-0 text-balance">
+        <div className="w-full md:w-1/2 h-full flex items-center text-center md:text-left pl-[10%]  ">
+          <h1 className="text-lg md:text-2xl leading-relaxed">
+            Join the World's Highest-Rated Online Masterclass (for Parents)
+            <br />
+            Learn simple, science-backed techniques to teach your child to read
+            — in just 15 minutes a day.
+          </h1>
+        </div>
+
+        <div className="w-full md:w-1/2 relative aspect-[3/4] md:pr-0">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/assets/user.png"
+            alt="user"
+            fill
+            className="object-contain"
+            priority
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+      </div> */}
+
+      <div className="absolute top-[5%] left-0 z-20 w-full px-4 md:px-0 h-auto flex flex-col md:flex-row justify-between items-center text-white font-bold space-y-3 md:space-y-0 text-balance mt-[105%] md:mt-0">
+        <div className="w-full md:w-1/2 h-full flex items-center text-center md:text-left pl-[10%]">
+          <h1 className="text-lg md:text-2xl leading-relaxed">
+            Join the World's Highest-Rated Online Masterclass (for Parents)
+            <br />
+            Learn simple, science-backed techniques to teach your child to read
+            — in just 15 minutes a day.
+          </h1>
+        </div>
+
+        <div className="w-full md:w-1/2 relative aspect-[1/1] md:aspect-[3/4] md:pr-0">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/assets/user.png"
+            alt="user"
+            fill
+            className="object-contain"
+            priority
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </div>
+
+      <div
+        className="absolute top-[120%] left-0 w-full min-h-[2000px] z-10 bg-repeat-y bg-top"
+        style={{
+          backgroundImage: "url('/assets/Group_2.png')",
+          backgroundSize: "contain", // or "auto" or "100% auto" depending on your image
+        }}
+      ></div>
+      <div className="absolute top-[110%] md:top-[90%] left-0 w-full h-full z-30">
+        <Image
+          src={"/assets/vector_1.png"}
+          alt="vector"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      <div className="absolute left-1/2 top-[160%] md:top-[130%] w-[99%] h-[200px] transform -translate-x-1/2 z-40">
+        <Image
+          src="/assets/Group_1.png"
+          alt="group1"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="absolute top-[180%] md:top-[140%] w-full h-full z-30">
+        <Image
+          src="/assets/Group_4.png"
+          alt="group1"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="absolute top-[270%] md:top-[220%] h-[150rem] w-full z-50 ">
+        <Image
+          src="/assets/Group_5.png"
+          alt="group5"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+      <div className="absolute top-[200%] md:top-[150%] h-[150rem] w-full z-50 ">
+        <Image
+          src="/assets/Group_6.png"
+          alt="group5"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
     </div>
   );
 }
